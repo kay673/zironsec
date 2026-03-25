@@ -23,3 +23,11 @@ node_modules/
 __pycache__/
 dist/
 build/
+
+# Ignore local environment settings (API keys, etc.)
+src/Website/.env
+src/Website/config-PRIVATE.js
+
+# Ignore specific draft pages you aren't ready to show
+src/Website/drafts/
+src/Website/*-PRIVATE.html
