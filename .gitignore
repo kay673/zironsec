@@ -1,0 +1,25 @@
+# --- ZironSec Personal/Private Assets ---
+# This rule ignores any file with "-PRIVATE" in the name.
+# Use this for your bank notes, tax strategies, and master plans.
+*-PRIVATE.*
+docs/finance/
+docs/legal/
+
+# --- AI & MCP Secrets ---
+# Keeps your AI 'skills' from leaking your keys
+.env
+.env.*
+mcp-secrets.json
+.vscode/mcp-secrets.json
+
+# --- OS / IDE Junk ---
+.DS_Store
+Thumbs.db
+.vscode/*.log
+*.tmp
+
+# --- Development Trash ---
+node_modules/
+__pycache__/
+dist/
+build/
