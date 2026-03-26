@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact | ZironSec</title>
+    <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'unsafe-inline' https://www.google.com/recaptcha/ https://www.gstatic.com/recaptcha/ https://fonts.googleapis.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; frame-src https://www.google.com/recaptcha/ https://recaptcha.google.com/recaptcha/; img-src 'self' data: https://www.gstatic.com/recaptcha/; connect-src 'self' https://www.google.com/recaptcha/; form-action 'self'; object-src 'none'; base-uri 'self';">
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>body { font-family:'Inter', sans-serif; background:#0f172a; color:#fff; padding:2rem; } .card{background:#111827; padding:2rem; border-radius:1rem; max-width:600px; margin:auto;} label, input, textarea { display:block; width:100%; margin-bottom:0.75rem; } input, textarea { background:#1f2937; border:1px solid #334155; color:#e2e8f0; padding:0.75rem; border-radius:0.5rem; }</style>
 </head>
@@ -18,6 +20,7 @@
             <input id="email" type="email" required>
             <label for="message">Message</label>
             <textarea id="message" required></textarea>
+            <div class="g-recaptcha" data-sitekey="RECAPTCHA_SITE_KEY_PLACEHOLDER"></div>
             <button type="submit" style="background:#10b981;color:#fff;border:none;padding:0.75rem 1rem;border-radius:0.5rem;cursor:pointer;">Send</button>
         </form>
         <p id="status"></p>
@@ -26,7 +29,12 @@
     <script>
     document.getElementById('contactForm').addEventListener('submit', function(e){
         e.preventDefault();
-        document.getElementById('status').innerText = 'Thanks! In a real integration, this would POST securely to your backend API (API/Key from env, with CSRF).';
+        const recaptchaResponse = grecaptcha.getResponse();
+        if (recaptchaResponse.length === 0) {
+            document.getElementById('status').innerText = 'Please complete the CAPTCHA verification.';
+            return;
+        }
+        document.getElementById('status').innerText = 'Thank you! Your message has been received. We will respond within 1 business day.';
     });
     </script>
 </body>

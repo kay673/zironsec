@@ -17,6 +17,11 @@ docs/operations/remediation-templates-PRIVATE/
 mcp-secrets.json
 .vscode/mcp-secrets.json
 
+# --- Secrets Vault ---
+# Block all real secret files, allow only .example templates
+security/secrets/**
+!security/secrets/**/.env.*.example
+
 # --- OS / IDE Junk ---
 .DS_Store
 Thumbs.db

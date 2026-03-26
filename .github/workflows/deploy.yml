@@ -1,0 +1,25 @@
+name: Deploy ZironSec Website
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Inject reCAPTCHA site key into contact.html
+        env:
+          RECAPTCHA_SITE_KEY: ${{ secrets.RECAPTCHA_SITE_KEY }}
+        run: |
+          sed -i "s|RECAPTCHA_SITE_KEY_PLACEHOLDER|$RECAPTCHA_SITE_KEY|g" src/Website/contact.html
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./src/Website
