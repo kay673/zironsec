@@ -40,6 +40,8 @@ This advisory defines findings, impact, and remediation as a FedRAMP-ready compl
 
 ### 1.3 Remediation
 - Persistently self-host all required resources; remove direct CDN dependency.
+  - Implemented: `tailwind.local.js` in `src/Website`, used from homepage with local SI-7 hash.
+  - Removed `https://cdn.tailwindcss.com` from CSP script/style sources.
 - For remaining remote resources, add:
   - `integrity="sha384-<hash>..."`
   - `crossorigin="anonymous"`
