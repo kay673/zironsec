@@ -1,0 +1,10 @@
+Starting quarterly verification on 2026-03-25 14:30 CST
+=== PII Scan ===
+grep: src/: No such file or directory
+No PII found
+=== External Links Check ===
+All external links secure
+=== SRI Check ===
+grep: src/Website/index.html: No such file or directory
+SRI not found
+Verification complete. Check /Users/kaypumps/Documents/zironsec/docs/operations/Compliance/Fedramp/2026-03-25_Audit_Cycle/03_Verification/quarterly_verification_2026-03-25.log

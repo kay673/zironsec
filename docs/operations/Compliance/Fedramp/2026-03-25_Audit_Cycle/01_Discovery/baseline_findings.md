@@ -3,7 +3,6 @@
 
 Prepared by: Kay Stephen, MBA | Principal Security Architect
 Classification: [PRIVATE] - ZironSec Internal Proprietary
-Status: [RESOLVED]
 Date: 2026-03-25 14:30 CST
 Client: ZironSec LLC
 Scope: `src/Website/index.html`, `src/` directory scan, and compliance posture for Tier 3 enterprise sales
@@ -40,8 +39,6 @@ This advisory defines findings, impact, and remediation as a FedRAMP-ready compl
 
 ### 1.3 Remediation
 - Persistently self-host all required resources; remove direct CDN dependency.
-  - Implemented: `tailwind.local.js` in `src/Website`, used from homepage with local SI-7 hash.
-  - Removed `https://cdn.tailwindcss.com` from CSP script/style sources.
 - For remaining remote resources, add:
   - `integrity="sha384-<hash>..."`
   - `crossorigin="anonymous"`
@@ -57,13 +54,9 @@ This advisory defines findings, impact, and remediation as a FedRAMP-ready compl
 - Static PII in repo:
   - `src/Website/.env`: `VITE_OFFICE_PHONE="(281) 766-7909"`, `VITE_FOUNDER_EMAIL="kay@zironsec.com"`
 - Hardcoded contact details in HTML:
-  - `mailto:support@zironsec.com` in `404.html` and `maintenance.html`
-- Replaced on main homepage with secure form flow: `contact.html` and `handleContactRequest()`.
+  - `mailto:support@zironsec.com` in `index.html`, `404.html`, and `maintenance.html`
+  - `tel:2817667909` in `index.html`
 - No obvious API keys were discovered in scanned patterns for common tokens.
-
-### 2.2 Privacy Policy
-- Added `docs/operations/privacy-policy.md` and website route   `src/Website/privacy-policy.html`.
-- Policy includes GDPR/CCPA compliance statements and controls references.
 
 ### 2.2 Privacy-by-Design Analysis
 - GDPR/CCPA expect minimal exposure of personal identifiers without purpose and consent.
