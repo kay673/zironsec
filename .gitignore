@@ -27,6 +27,12 @@ security/secrets/**
 # Receipt files are already -PRIVATE.md (caught above), but explicitly protect folder
 docs/finance/receipts/
 
+# --- Gmail Receipt Sync Scripts ---
+# Keep Gmail API setup and scripts private
+scripts/sync_receipts.py
+scripts/requirements-receipts.txt
+scripts/README-gmail-receipt-sync.md
+
 # --- OS / IDE Junk ---
 .DS_Store
 Thumbs.db
@@ -48,4 +54,6 @@ src/Website/drafts/
 src/Website/*-PRIVATE.html
 
 # Ignore VSCode workspace settings (personal preferences)
+.vscode/settings.json
+.vscode/tasks.json
 .vscode/
