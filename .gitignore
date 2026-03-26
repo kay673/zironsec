@@ -4,6 +4,10 @@
 *-PRIVATE.*
 docs/finance/
 docs/legal/
+docs/operations/Compliance/
+docs/operations/Fedramp/
+# Backup rule: catch anything with 'Compliance' regardless of case
+[Cc]ompliance/
 
 # --- AI & MCP Secrets ---
 # Keeps your AI 'skills' from leaking your keys
