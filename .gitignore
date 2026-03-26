@@ -18,9 +18,14 @@ mcp-secrets.json
 .vscode/mcp-secrets.json
 
 # --- Secrets Vault ---
-# Block all real secret files, allow only .example templates
+# Block all real secret files, allow only .example templates and READMEs
 security/secrets/**
 !security/secrets/**/.env.*.example
+!security/secrets/**/README-SETUP.md
+
+# --- Finance Receipts ---
+# Receipt files are already -PRIVATE.md (caught above), but explicitly protect folder
+docs/finance/receipts/
 
 # --- OS / IDE Junk ---
 .DS_Store
