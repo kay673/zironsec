@@ -31,3 +31,6 @@ src/Website/config-PRIVATE.js
 # Ignore specific draft pages you aren't ready to show
 src/Website/drafts/
 src/Website/*-PRIVATE.html
+
+# Ignore VSCode workspace settings (personal preferences)
+.vscode/
