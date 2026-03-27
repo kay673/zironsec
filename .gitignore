@@ -7,6 +7,7 @@ docs/legal/
 docs/operations/Compliance/
 docs/operations/Fedramp/
 docs/operations/remediation-templates-PRIVATE/
+docs/operations/vulnerability-management-PRIVATE/
 # Backup rule: catch anything with 'Compliance' regardless of case
 [Cc]ompliance/
 
